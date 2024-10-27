@@ -27,10 +27,15 @@ venctl version
 
 ## Kind
 
-Install Kind. It will be used to run local kubernetes clusters. For more learning experience and outside of this workshop, try to achieve the same using other flavours of Kubernetes. The simplest is to run a kubernetes cluster on a cloud provider of choice. 
+Install Kind. It will be used to run local kubernetes clusters. For more learning experience and outside of this workshop, try to achieve the same using other flavours of Kubernetes. The simplest is to run a kubernetes cluster on a cloud provider of choice.  
+With the latest updates in Github Codespaces and kind, we need to use EXPIREMENTAL_NETWORK flag.
 
 ```bash
-go install sigs.k8s.io/kind@v0.23.0
+docker network create kind
+export KIND_EXPERIMENTAL_DOCKER_NETWORK=kind
+curl -Lo ./kind https://kind.sigs.k8s.io/dl/latest/kind-linux-amd64
+chmod +x ./kind
+sudo mv ./kind /usr/local/bin/kind
 ```
 
 ```bash
